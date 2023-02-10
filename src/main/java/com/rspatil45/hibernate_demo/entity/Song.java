@@ -1,15 +1,18 @@
-package com.rspatil45.hibernate_demo;
+package com.rspatil45.hibernate_demo.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity 
+@Table(name =  "Song")
 public class Song {
 	//songId, songName, singer
 	@Id
 	private int songId;
 	
+	@Column(name="songName") //here datamember name and column name are same so it is optional to provide @Column tag but it is standard practice to use it.
 	private String songName;
 	
 	@Column(name = "singer")
@@ -33,6 +36,10 @@ public class Song {
 	}
 	public void setArtist(String artist) {
 		this.artist = artist;
+	}
+	@Override
+	public String toString() {
+		return "Song [songId=" + songId + ", songName=" + songName + ", artist=" + artist + "]";
 	}
 	
 	
