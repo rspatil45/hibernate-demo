@@ -2,7 +2,6 @@ package com.rspatil45.hibernate_demo;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 
 import com.rspatil45.hibernate_demo.entity.Song;
 import com.rspatil45.hibernate_demo.utils.Hibernateutils;
@@ -12,7 +11,7 @@ public class UpdateApp {
 	public static void main(String[] args) {
 		
     	Session session = null;    	     	
-    	SessionFactory sessionFactory = Hibernateutils.getSessionFactory();    	    	
+    	SessionFactory sessionFactory = Hibernateutils.getSessionFactoryMySQL();    	    	
     	 
     	session = sessionFactory.openSession();
     	// if we are making any changes then object should be inside transaction
@@ -27,14 +26,9 @@ public class UpdateApp {
 
     	Song s2 =  session.get(Song.class, 2);
     	s2.setSongName("Dushamn na kare");
-    	session.update(s2);
+    	session.update(s2); //optional, if we don't write it, it will work
     	
-    	session.getTransaction().commit();
-    	
-    	
-
-    	
-    
+    	session.getTransaction().commit();    	 	   	    
     	session.close(); 
 	}
 
