@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class Song {
 	//songId, songName, singer
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY) // responsibility of generating primary key is given to database
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // responsibility of generating primary key is given to database, need to enable auto increment on primary key
 	private int songId;
 	
 	@Column(name="songName") //here datamember name and column name are same so it is optional to provide @Column tag but it is standard practice to use it.
